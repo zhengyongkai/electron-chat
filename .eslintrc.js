@@ -43,6 +43,7 @@ module.exports = {
 
     // 符号位置规则
     'no-console': 2,
+    'no-unused-vars': 2,
     'comma-style': 1, // 逗号在末尾处
     'comma-spacing': 1, // 逗号后有至少一个空格
     'comma-dangle': [1, 'never'], // 强制不使用末尾逗号
@@ -52,6 +53,7 @@ module.exports = {
     quotes: [1, 'single'], // 使用单引号
     semi: [1, 'never'],
     'semi-style': [1, 'last'], // 分号在末尾处
+    'no-undef': 2,
     'semi-spacing': [
       1,
       {
