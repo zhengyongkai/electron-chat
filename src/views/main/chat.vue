@@ -3,11 +3,10 @@
 </template>
 
 <script lang="ts" setup>
-import http from '@/utils/http'
-http.get('/api/api/news/list', {}).then(() => {
-  //
-  // let { list } = res.data
-})
+// import { useStore } from 'vuex'
+// // store等同于this.$store，setup中没有this，只能这个书写
+// const store = useStore()
+// console.log(store.state.user.username)
 </script>
 
 <style lang="scss" scoped></style>
