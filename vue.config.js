@@ -8,11 +8,25 @@ function resolve(dir) {
 
 module.exports = defineConfig(() => {
   return {
+    lintOnSave: false,
     publicPath: './',
     transpileDependencies: true,
     chainWebpack: (config) => {
       config.resolve.alias.set('@', resolve('src'))
       // config.resolve.extensions = ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue']
+    },
+    devServer: {
+      proxy: {
+        // 配置跨域
+        '/api': {
+          target: process.env.baseUrl, // 这里后台的地址模拟的;应该填写你们真实的后台接口
+          ws: true,
+          changOrigin: true, // 允许跨域
+          pathRewrite: {
+            '^/api': '' // 请求的时候使用这个api就可以
+          }
+        }
+      }
     },
     pluginOptions: {
       electronBuilder: {
