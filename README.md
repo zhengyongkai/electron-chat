@@ -1,24 +1,11 @@
 # chat-vue
 
-## Project setup
-```
-npm install
-```
+## 运行
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+<img src="./pic/run.png" />
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## 日志
 
-### Lints and fixes files
 ```
-npm run lint
+But it time to face the truth , I will never be with you
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
