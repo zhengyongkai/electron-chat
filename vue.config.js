@@ -1,3 +1,5 @@
+const AutoImport = require('unplugin-auto-import/webpack')
+
 const { defineConfig } = require('@vue/cli-service')
 
 const path = require('path')
@@ -14,6 +16,15 @@ module.exports = defineConfig(() => {
     chainWebpack: (config) => {
       config.resolve.alias.set('@', resolve('src'))
       // config.resolve.extensions = ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue']
+    },
+    configureWebpack: {
+      plugins: [
+        AutoImport({
+          imports: ['vue', 'vue-router'],
+          include: [/\.[tj]sx?$/, /\.vue$/, /\.vue\?vue/, /\.md$/],
+          dts: 'src/auto-imports.d.ts'
+        })
+      ]
     },
     devServer: {
       proxy: {
