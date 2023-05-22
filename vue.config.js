@@ -19,6 +19,13 @@ module.exports = defineConfig(() => {
       config.resolve.alias.set('@', resolve('src'))
       // config.resolve.extensions = ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue']
     },
+    css: {
+      loaderOptions: {
+        scss: {
+          additionalData: '@import"@/assets/styles/index.scss";'
+        }
+      }
+    },
     configureWebpack: {
       resolve: {
         symlinks: false,

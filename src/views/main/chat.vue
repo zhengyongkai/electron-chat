@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <el-button>sdad</el-button>
-  </div>
+  <div>dasd</div>
 </template>
 
 <script lang="ts" setup>
@@ -11,4 +9,8 @@
 // console.log(store.state.user.username)
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+div {
+  color: $--common-color-warn;
+}
+</style>
