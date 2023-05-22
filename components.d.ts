@@ -12,6 +12,7 @@ declare module '@vue/runtime-core' {
     BasicLayout: typeof import('./src/components/layout/BasicLayout.vue')['default']
     Contact: typeof import('./src/components/layout/Contact.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }
