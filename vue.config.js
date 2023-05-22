@@ -1,4 +1,6 @@
 const AutoImport = require('unplugin-auto-import/webpack')
+const Components = require('unplugin-vue-components/webpack')
+const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 
 const { defineConfig } = require('@vue/cli-service')
 
@@ -18,11 +20,21 @@ module.exports = defineConfig(() => {
       // config.resolve.extensions = ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue']
     },
     configureWebpack: {
+      resolve: {
+        symlinks: false,
+        alias: {
+          vue: path.resolve('./node_modules/vue')
+        }
+      },
       plugins: [
         AutoImport({
           imports: ['vue', 'vue-router'],
           include: [/\.[tj]sx?$/, /\.vue$/, /\.vue\?vue/, /\.md$/],
-          dts: 'src/auto-imports.d.ts'
+          dts: 'src/auto-imports.d.ts',
+          resolvers: [ElementPlusResolver()]
+        }),
+        Components({
+          resolvers: [ElementPlusResolver()]
         })
       ]
     },
