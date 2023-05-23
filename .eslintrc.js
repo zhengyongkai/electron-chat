@@ -54,6 +54,7 @@ module.exports = {
     semi: [1, 'never'],
     'semi-style': [1, 'last'], // 分号在末尾处
     'no-undef': 2,
+    '@typescript-eslint/no-explicit-any': 0,
     'semi-spacing': [
       1,
       {
