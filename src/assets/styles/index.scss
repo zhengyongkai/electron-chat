@@ -1,5 +1,6 @@
 @import './color.scss';
 @import './layout.scss';
+@import './position.scss';
 
 // marign
 
@@ -30,9 +31,11 @@
 
 // 标准为 8 的倍数
 @mixin padding-size-lr($size) {
-  margin: 0 $size * 8;
+  margin-left: $size * 8px;
+  margin-right: $size * 8px;
 }
 
 @mixin padding-size-tb($size) {
-  margin: $size * 10 0;
+  margin-top: $size * 10px;
+  margin-bottom: $size * 10px;
 }

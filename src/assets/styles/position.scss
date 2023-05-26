@@ -1,0 +1,8 @@
+@mixin box-fix {
+  position: fixed;
+}
+
+@mixin box-fix-all {
+  @include box-fix;
+  inset: 0;
+}

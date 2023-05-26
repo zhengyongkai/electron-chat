@@ -1,3 +1,17 @@
+// srcoll
+
+@mixin hidden {
+  overflow: hidden;
+}
+
+@mixin x-scoll {
+  overflow-x: auto;
+}
+
+@mixin y-scoll {
+  overflow-y: auto;
+}
+
 // center
 
 @mixin align {
@@ -33,15 +47,4 @@
   @include common-layout-flex-al;
   @include common-layout-flex-jc;
   justify-content: center;
-}
-
-// fix
-
-@mixin box-fix {
-  position: fix;
-}
-
-@mixin bofx-fix-all {
-  @include box-fix;
-  inset: 0;
 }
