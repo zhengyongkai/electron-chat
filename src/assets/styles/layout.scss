@@ -1,0 +1,47 @@
+// center
+
+@mixin align {
+  @include text-align;
+  @include box-align;
+}
+
+@mixin text-align {
+  text-align: center;
+}
+
+@mixin box-align {
+  margin: 0 auto;
+}
+
+// display
+
+@mixin common-layout-flex {
+  display: flex;
+}
+
+@mixin common-layout-flex-al {
+  @include common-layout-flex;
+  align-items: center;
+}
+
+@mixin common-layout-flex-jc {
+  @include common-layout-flex;
+  justify-content: center;
+}
+
+@mixin common-layout-flex-ct {
+  @include common-layout-flex-al;
+  @include common-layout-flex-jc;
+  justify-content: center;
+}
+
+// fix
+
+@mixin box-fix {
+  position: fix;
+}
+
+@mixin bofx-fix-all {
+  @include box-fix;
+  inset: 0;
+}

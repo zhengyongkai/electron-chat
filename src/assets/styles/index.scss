@@ -1,1 +1,38 @@
 @import './color.scss';
+@import './layout.scss';
+
+// marign
+
+@mixin margin($left: 8, $right: 8, $bottom: 8, $top: 8) {
+  margin-left: $left;
+  margin-right: $right;
+  margin-bottom: $bottom;
+  margin-top: $top;
+}
+
+// 标准为 8 的倍数
+@mixin margin-size-lr($size) {
+  margin: 0 $size * 8;
+}
+
+@mixin margin-size-tb($size) {
+  margin: $size * 10 0;
+}
+
+// padding
+
+@mixin padding($left: 8, $right: 8, $bottom: 8, $top: 8) {
+  padding-left: $left;
+  padding-right: $right;
+  padding-bottom: $bottom;
+  padding-top: $top;
+}
+
+// 标准为 8 的倍数
+@mixin padding-size-lr($size) {
+  margin: 0 $size * 8;
+}
+
+@mixin padding-size-tb($size) {
+  margin: $size * 10 0;
+}

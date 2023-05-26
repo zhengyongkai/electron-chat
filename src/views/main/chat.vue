@@ -1,5 +1,8 @@
 <template>
-  <div>我是 xxx</div>
+  <div class="chat-container">
+    <div class="chat-left">我是左边</div>
+    <div class="chat-right">我是右边</div>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -15,7 +18,13 @@
 </script>
 
 <style lang="scss" scoped>
-div {
-  color: $--common-color-warn;
+.chat-container {
+  @include common-layout-flex;
+  .chat-left {
+    width: 30%;
+  }
+  .chat-right {
+    flex: 1;
+  }
 }
 </style>
