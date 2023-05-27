@@ -7,6 +7,9 @@ const zh = {
   btns: {
     login: '登录'
   },
+  tips: {
+    changeLang: '点击切换语言'
+  },
   // 中英文專屬空格
   blank: ''
 }
