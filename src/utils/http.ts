@@ -5,8 +5,13 @@ import type {
   AxiosResponse,
   InternalAxiosRequestConfig
 } from 'axios'
+import { ElMessage } from 'element-plus'
+import 'element-plus/theme-chalk/el-loading.css'
+import 'element-plus/theme-chalk/el-message.css'
 
-import type { HttpResult } from '@/types/http'
+import type { HttpData, HttpResult } from '@/types/http'
+
+// const whiteList = ['get_userinfo']
 
 export class HttpRequest {
   instance: AxiosInstance
@@ -14,18 +19,23 @@ export class HttpRequest {
   constructor(config: AxiosRequestConfig) {
     this.instance = axios.create(Object.assign(this.baseConfig, config))
     this.instance = axios.create(this.baseConfig)
-    this.instance.interceptors.response.use((response: AxiosResponse) => {
-      const data: HttpResult = response.data
-      switch (data.code) {
-        case 200:
-          break
-        case 401:
-          break
-        default:
-          break
+    this.instance.interceptors.response.use(
+      (response: AxiosResponse) => {
+        const data: HttpResult = response.data.data
+        return Promise.resolve(data)
+      },
+      (error) => {
+        if (error.response.data) {
+          const data = error.response.data
+          switch (data.code) {
+            case 401:
+              break
+          }
+          ElMessage.error(data.msg)
+        }
+        return Promise.reject(error)
       }
-      return Promise.resolve(data)
-    })
+    )
     this.instance.interceptors.request.use((request: InternalAxiosRequestConfig) => {
       return request
     })
@@ -35,23 +45,15 @@ export class HttpRequest {
     return this.instance.get(url, config)
   }
 
-  public post(
-    url: string,
-    data?: unknown,
-    config?: AxiosRequestConfig
-  ): Promise<AxiosResponse<HttpResult>> {
+  public post(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<HttpData> {
     return this.instance.post(url, data, config)
   }
 
-  public put(
-    url: string,
-    data?: unknown,
-    config?: AxiosRequestConfig
-  ): Promise<AxiosResponse<HttpResult>> {
+  public put(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<HttpData> {
     return this.instance.put(url, data, config)
   }
 
-  public delete(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse<HttpResult>> {
+  public delete(url: string, config?: AxiosRequestConfig): Promise<HttpData> {
     return this.instance.delete(url, config)
   }
 }

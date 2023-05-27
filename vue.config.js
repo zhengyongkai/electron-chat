@@ -46,6 +46,9 @@ module.exports = defineConfig(() => {
       ]
     },
     devServer: {
+      client: {
+        overlay: false
+      },
       proxy: {
         // 配置跨域
         '/api': {

@@ -1,19 +1,18 @@
-export interface UserState {
-  username: string
-}
+import { UserInfo, UserState } from '@/types/user'
 
 const store = {
   state: {
-    username: '测试'
+    username: '测试',
+    token: ''
   },
   getters: {
-    getName: (state: UserState) => {
-      return state
+    getInfo: (state: UserState) => {
+      return state.userInfo
     }
   },
   mutations: {
-    SET_NAME(state: UserState, params: string) {
-      state.username = params
+    SET_TOKEN(state: UserState, params: UserInfo) {
+      state.userInfo = params
     }
   },
   actions: {}

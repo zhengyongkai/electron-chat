@@ -8,9 +8,15 @@ export interface HttpResultList {
   total: number
 }
 
+export interface LoginResult {
+  token: string
+}
+
 export interface HttpResult extends AxiosResponse {
   code: number
-  data: HttpResultList | undefined
+  data: HttpResultList | LoginResult | undefined
   msg: string
   success: boolean
 }
+
+export type HttpData = HttpResultList & LoginResult & string

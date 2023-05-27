@@ -8,7 +8,7 @@
         <h3>CNCS Chat System</h3>
         <div>
           <el-form-item>
-            <el-input v-model="form.name" :placeholder="t('form.username')">
+            <el-input v-model="form.username" :placeholder="t('form.username')">
               <template #prefix>
                 <span>
                   <el-icon>
@@ -19,7 +19,7 @@
             </el-input>
           </el-form-item>
           <el-form-item>
-            <el-input v-model="form.name" :placeholder="t('form.password')">
+            <el-input v-model="form.password" :placeholder="t('form.password')">
               <template #prefix>
                 <span>
                   <el-icon>
@@ -33,7 +33,13 @@
             <el-checkbox v-model="form.remember" :label="t('form.remember')" size="large" />
           </el-form-item>
           <el-form-item style="width: 100%">
-            <el-button size="large" type="primary" style="width: 100%">
+            <el-button
+              size="large"
+              type="primary"
+              style="width: 100%"
+              @click="onLogin"
+              :loading="loading"
+            >
               {{ t('btns.login') }}
             </el-button>
           </el-form-item>
@@ -48,12 +54,32 @@ import { User, Lock } from '@element-plus/icons-vue'
 import langChange from '@/components/main/lang.vue'
 import { useI18n } from 'vue-i18n'
 
+import { login, getUserInfo } from '@/api/user'
+
+const store = useStore()
+
 const { t } = useI18n() // 实例
 const form = ref({
-  name: '',
-  password: '',
+  username: 'zhengyongkai',
+  password: '123456',
   remember: false
 })
+const loading = ref(false)
+
+async function onLogin() {
+  try {
+    loading.value = true
+    const { token } = await login({
+      username: form.value.username,
+      password: form.value.password
+    })
+
+    store.commit('SET_TOKEN', token)
+    await getUserInfo()
+  } catch {
+    loading.value = false
+  }
+}
 </script>
 
 <style lang="scss">
