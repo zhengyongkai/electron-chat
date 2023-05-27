@@ -52,7 +52,7 @@ module.exports = defineConfig(() => {
       proxy: {
         // 配置跨域
         '/api': {
-          target: process.env.baseUrl, // 这里后台的地址模拟的;应该填写你们真实的后台接口
+          target: process.env.VUE_BASE_URL, // 这里后台的地址模拟的;应该填写你们真实的后台接口
           ws: true,
           changOrigin: true, // 允许跨域
           pathRewrite: {
@@ -65,7 +65,7 @@ module.exports = defineConfig(() => {
       electronBuilder: {
         builderOptions: {
           appId: 'com.example.app',
-          productName: 'aDemo', // 项目名，也是生成的安装文件名，即aDemo.exe
+          productName: 'chat', // 项目名，也是生成的安装文件名，即aDemo.exe
           copyright: 'Copyright © 2019', // 版权信息
           directories: {
             output: './dist' // 输出文件路径

@@ -14,7 +14,7 @@ const routes: Array<RouteRecordRaw> = [
     path: '',
     name: '',
     component: BasicLayout,
-    redirect: '/chat',
+    redirect: '/login',
     children: [
       {
         path: '/chat',
