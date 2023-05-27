@@ -8,7 +8,7 @@
         <h3>CNCS Chat System</h3>
         <div>
           <el-form-item>
-            <el-input v-model="form.name">
+            <el-input v-model="form.name" :placeholder="t('form.username')">
               <template #prefix>
                 <span>
                   <el-icon>
@@ -19,7 +19,7 @@
             </el-input>
           </el-form-item>
           <el-form-item>
-            <el-input v-model="form.name">
+            <el-input v-model="form.name" :placeholder="t('form.password')">
               <template #prefix>
                 <span>
                   <el-icon>
@@ -30,7 +30,7 @@
             </el-input>
           </el-form-item>
           <el-form-item>
-            <el-checkbox v-model="form.remember" label="记住密码" size="large" />
+            <el-checkbox v-model="form.remember" :label="t('form.remember')" size="large" />
           </el-form-item>
           <el-form-item style="width: 100%">
             <el-button size="large" type="primary" style="width: 100%">

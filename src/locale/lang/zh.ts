@@ -1,6 +1,8 @@
 const zh = {
   form: {
-    xxx: '我是xxx'
+    username: '账号',
+    password: '密码',
+    remember: '记住密码'
   },
   btns: {
     login: '登录'

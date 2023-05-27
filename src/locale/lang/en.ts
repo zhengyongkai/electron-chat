@@ -1,5 +1,9 @@
 const en = {
-  form: {},
+  form: {
+    username: 'username',
+    password: 'password',
+    remember: 'Remember me'
+  },
   btns: {
     login: 'Login'
   },
