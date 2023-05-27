@@ -35,7 +35,8 @@ module.exports = {
     defineStore: 'readonly',
     createPinia: 'readonly',
     inject: 'readonly',
-    provide: 'readonly'
+    provide: 'readonly',
+    useStore: 'readonly'
   },
   rules: {
     // //通用规则//

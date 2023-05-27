@@ -1,6 +1,7 @@
 const en = {
-  form: {
-    xxx: 'I am xxx'
+  form: {},
+  btns: {
+    login: 'Login'
   },
   // 中英文專屬空格
   blank: ''

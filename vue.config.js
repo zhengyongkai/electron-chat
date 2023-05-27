@@ -35,7 +35,7 @@ module.exports = defineConfig(() => {
       },
       plugins: [
         AutoImport({
-          imports: ['vue', 'vue-router', 'vue-i18n'],
+          imports: ['vue', 'vue-router', 'vue-i18n', 'vuex'],
           include: [/\.[tj]sx?$/, /\.vue$/, /\.vue\?vue/, /\.md$/],
           dts: 'src/auto-imports.d.ts',
           resolvers: [ElementPlusResolver()]

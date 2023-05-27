@@ -24,7 +24,7 @@ import LeftBarLayout from './LeftBarLayout.vue'
   .tab-right {
     @include box-fix;
     @include box-fix-all;
-    left: 100px;
+    left: 80px;
     flex: 1;
   }
 }

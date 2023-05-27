@@ -7,7 +7,7 @@ export interface localeState {
 
 const locale = {
   state: {
-    language: localStorage.getItem(LANG) || 'en'
+    language: localStorage.getItem(LANG) || 'en-US'
   },
   getters: {
     getlanguage(state: localeState) {
@@ -17,7 +17,7 @@ const locale = {
   mutations: {
     setLanguage(state: localeState, lang: string) {
       // 设置缓存
-      localStorage.setItem(LANG, lang)
+      localStorage.setItem('lang', lang)
       // 修改状态
       state.language = lang
     }

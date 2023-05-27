@@ -13,12 +13,21 @@ body {
 </style>
 
 <script lang="ts" setup>
-import { useStore } from 'vuex'
+import { useI18n } from 'vue-i18n'
 
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import en from 'element-plus/dist/locale/en.mjs'
 
 const store = useStore()
+const i18n = useI18n()
 
 const locale = store.state.locale.language === 'zh-CN' ? zhCn : en
+
+function initLang() {
+  i18n.locale.value = store.state.locale.language
+}
+
+onMounted(() => {
+  initLang()
+})
 </script>

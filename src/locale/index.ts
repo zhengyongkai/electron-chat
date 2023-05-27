@@ -3,7 +3,7 @@ import zh from './lang/zh'
 import en from './lang/en'
 const locale = 'zh-CN'
 const messages = {
-  en,
+  'en-US': en,
   'zh-CN': zh
 }
 
