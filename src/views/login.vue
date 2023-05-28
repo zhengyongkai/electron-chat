@@ -50,6 +50,7 @@
 </template>
 
 <script lang="ts" setup>
+import { notification } from '@/utils/message'
 import { User, Lock } from '@element-plus/icons-vue'
 import langChange from '@/components/main/lang.vue'
 import { useI18n } from 'vue-i18n'
@@ -57,6 +58,7 @@ import { useI18n } from 'vue-i18n'
 import { login, getUserInfo } from '@/api/user'
 
 const store = useStore()
+const router = useRouter()
 
 const { t } = useI18n() // 实例
 const form = ref({
@@ -75,8 +77,11 @@ async function onLogin() {
     })
 
     store.commit('SET_TOKEN', token)
-    await getUserInfo()
-  } catch {
+    const data = await getUserInfo()
+    store.commit('SET_USERINFO', data)
+    notification('欢迎你').show('success')
+    router.push('/chat')
+  } finally {
     loading.value = false
   }
 }

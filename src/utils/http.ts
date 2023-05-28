@@ -6,12 +6,11 @@ import type {
   InternalAxiosRequestConfig
 } from 'axios'
 import { ElMessage } from 'element-plus'
-import 'element-plus/theme-chalk/el-loading.css'
-import 'element-plus/theme-chalk/el-message.css'
+import store from '@/store'
 
 import type { HttpData, HttpResult } from '@/types/http'
 
-// const whiteList = ['get_userinfo']
+// const whiteList = ['login']
 
 export class HttpRequest {
   instance: AxiosInstance
@@ -37,7 +36,12 @@ export class HttpRequest {
       }
     )
     this.instance.interceptors.request.use((request: InternalAxiosRequestConfig) => {
+      const token = store.getters.getToken
       request.url = (process.env.VUE_APP_PROXY as string) + request.url
+
+      if (request.url.indexOf('login') === -1) {
+        request.headers.Authorization = token
+      }
       return request
     })
   }
