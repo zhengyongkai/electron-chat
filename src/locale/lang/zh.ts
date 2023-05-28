@@ -1,4 +1,7 @@
 const zh = {
+  https: {
+    error: '服务器错误,请稍后重试'
+  },
   form: {
     username: '账号',
     password: '密码',

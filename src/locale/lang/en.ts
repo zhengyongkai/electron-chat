@@ -1,4 +1,7 @@
 const en = {
+  https: {
+    error: 'Service Error,Please Try'
+  },
   form: {
     username: 'username',
     password: 'password',

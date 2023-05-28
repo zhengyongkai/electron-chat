@@ -7,6 +7,7 @@ import type {
 } from 'axios'
 import { ElMessage } from 'element-plus'
 import store from '@/store'
+import { $t } from './common'
 
 import type { HttpData, HttpResult } from '@/types/http'
 
@@ -24,13 +25,15 @@ export class HttpRequest {
         return Promise.resolve(data)
       },
       (error) => {
-        if (error.response.data) {
+        if (error.response && error.response.data) {
           const data = error.response.data
           switch (data.code) {
             case 401:
               break
           }
           ElMessage.error(data.msg)
+        } else {
+          ElMessage.error($t('https.error'))
         }
         return Promise.reject(error)
       }
