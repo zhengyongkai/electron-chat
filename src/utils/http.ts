@@ -15,7 +15,7 @@ import type { HttpData, HttpResult } from '@/types/http'
 
 export class HttpRequest {
   instance: AxiosInstance
-  baseConfig: AxiosRequestConfig = { baseURL: process.env.VUE_BASE_URL, timeout: 5000 }
+  baseConfig: AxiosRequestConfig = { baseURL: process.env.VUE_APP_URL, timeout: 5000 }
   constructor(config: AxiosRequestConfig) {
     this.instance = axios.create(Object.assign(this.baseConfig, config))
     this.instance = axios.create(this.baseConfig)
@@ -37,6 +37,7 @@ export class HttpRequest {
       }
     )
     this.instance.interceptors.request.use((request: InternalAxiosRequestConfig) => {
+      request.url = (process.env.VUE_APP_PROXY as string) + request.url
       return request
     })
   }

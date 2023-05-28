@@ -27,6 +27,9 @@ module.exports = defineConfig(() => {
       }
     },
     configureWebpack: {
+      externals: {
+        electron: 'require("electron")'
+      },
       resolve: {
         symlinks: false,
         alias: {
@@ -52,7 +55,7 @@ module.exports = defineConfig(() => {
       proxy: {
         // 配置跨域
         '/api': {
-          target: process.env.VUE_BASE_URL, // 这里后台的地址模拟的;应该填写你们真实的后台接口
+          target: process.env.VUE_APP_URL, // 这里后台的地址模拟的;应该填写你们真实的后台接口
           ws: true,
           changOrigin: true, // 允许跨域
           pathRewrite: {
@@ -63,6 +66,7 @@ module.exports = defineConfig(() => {
     },
     pluginOptions: {
       electronBuilder: {
+        nodeIntegration: true,
         builderOptions: {
           appId: 'com.example.app',
           productName: 'chat', // 项目名，也是生成的安装文件名，即aDemo.exe

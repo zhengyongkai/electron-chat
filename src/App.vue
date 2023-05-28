@@ -27,6 +27,10 @@ function initLang() {
   i18n.locale.value = store.state.locale.language
 }
 
+// function click() {
+//   window.ipcRenderer.send('window-maximize')
+// }
+// console.log(ipcRenderer)
 onMounted(() => {
   initLang()
 })
