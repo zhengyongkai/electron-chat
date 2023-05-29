@@ -12,7 +12,9 @@
         </el-row>
       </div>
       <div class="chat-friend">
-        <div style="height: 2000px">你好</div>
+        <div style="height: 2000px">
+          <div @click="onClick">点我聊天</div>
+        </div>
       </div>
     </div>
     <div class="chat-right">
@@ -27,6 +29,11 @@ import { Plus } from '@element-plus/icons-vue'
 const form = ref({
   search: ''
 })
+const router = useRouter()
+
+function onClick() {
+  router.push('/chat/123')
+}
 </script>
 
 <style lang="scss" scoped>
@@ -38,7 +45,7 @@ const form = ref({
     @include padding-size-tb(2);
     @include common-layout-flex;
     flex-direction: column;
-    width: 20%;
+    width: 28%;
     height: 100%;
     border-right: 1px solid $--common-color-grey;
 
@@ -59,6 +66,7 @@ const form = ref({
   }
   .chat-right {
     flex: 1;
+    height: 100%;
   }
 }
 </style>
