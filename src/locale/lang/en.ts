@@ -11,7 +11,12 @@ const en = {
     login: 'Login'
   },
   tips: {
-    changeLang: 'change Language'
+    changeLang: 'change Language',
+    chat: 'chat',
+    contacts: 'contacts',
+    see: 'Wow',
+    shop: 'shopping',
+    fav: 'collection'
   },
   // 中英文專屬空格
   blank: ''

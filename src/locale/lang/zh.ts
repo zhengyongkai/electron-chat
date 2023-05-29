@@ -11,7 +11,12 @@ const zh = {
     login: '登录'
   },
   tips: {
-    changeLang: '点击切换语言'
+    changeLang: '点击切换语言',
+    chat: '聊天',
+    contacts: '通讯录',
+    see: '看一看',
+    shop: '购物',
+    fav: '收藏'
   },
   // 中英文專屬空格
   blank: ''
