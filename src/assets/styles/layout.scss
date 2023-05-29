@@ -5,11 +5,17 @@
 }
 
 @mixin x-scoll {
-  overflow-x: auto;
+  overflow: hidden;
+  &:hover {
+    overflow-x: auto;
+  }
 }
 
 @mixin y-scoll {
-  overflow-y: auto;
+  overflow: hidden;
+  &:hover {
+    overflow-y: auto;
+  }
 }
 
 // center

@@ -3,9 +3,9 @@
 @import './position.scss';
 @import './radius.scss';
 @import './common.scss';
+@import './scroll.scss';
 
 // marign
-
 @mixin margin($left: 8, $right: 8, $bottom: 8, $top: 8) {
   margin-left: $left;
   margin-right: $right;
@@ -15,11 +15,11 @@
 
 // 标准为 8 的倍数
 @mixin margin-size-lr($size) {
-  margin: 0 $size * 8;
+  margin: 0 $size * 8px;
 }
 
 @mixin margin-size-tb($size) {
-  margin: $size * 10 0;
+  margin: $size * 10px 0;
 }
 
 // padding
@@ -33,11 +33,11 @@
 
 // 标准为 8 的倍数
 @mixin padding-size-lr($size) {
-  margin-left: $size * 8px;
-  margin-right: $size * 8px;
+  padding-left: $size * 8px;
+  padding-right: $size * 8px;
 }
 
 @mixin padding-size-tb($size) {
-  margin-top: $size * 10px;
-  margin-bottom: $size * 10px;
+  padding-top: $size * 10px;
+  padding-bottom: $size * 10px;
 }

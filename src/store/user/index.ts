@@ -3,7 +3,7 @@ import { setLocalStorage, getLocalStorage } from '@/utils/storage'
 
 const store = {
   state: {
-    userInfo: {},
+    userInfo: getLocalStorage('USERINFO', true),
     token: getLocalStorage('TOKEN')
   },
   getters: {

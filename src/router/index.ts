@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
-import chat from '../views/main/chat.vue'
+import chatContainer from '../views/main/container.vue'
+import chatBody from '../views/chat/chat.vue'
 import login from '../views/login.vue'
 import BasicLayout from '@/components/layout/BasicLayout.vue'
 
@@ -19,7 +20,14 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: '/chat',
         name: 'chat',
-        component: chat
+        component: chatContainer,
+        children: [
+          {
+            path: '/chat/:id',
+            name: 'chatbody',
+            component: chatBody
+          }
+        ]
       }
     ]
   }

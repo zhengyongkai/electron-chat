@@ -16,10 +16,11 @@ import LeftBarLayout from './LeftBarLayout.vue'
 <style lang="scss" scoped>
 .tab-container {
   @include common-layout-flex;
+  @include box-fix;
+  top: 0;
+  bottom: 0;
   .tab-left {
-    @include box-fix;
-    top: 0;
-    bottom: 0;
+    height: 100%;
   }
   .tab-right {
     @include box-fix;
