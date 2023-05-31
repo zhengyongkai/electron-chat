@@ -14,9 +14,9 @@ export interface LoginResult {
 
 export interface HttpResult extends AxiosResponse {
   code: number
-  data: HttpResultList | LoginResult | undefined
+  data: any
   msg: string
   success: boolean
 }
 
-export type HttpData = HttpResultList & LoginResult & string
+export type HttpData = HttpResultList & LoginResult & string & HttpResult & any

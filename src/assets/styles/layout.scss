@@ -18,6 +18,12 @@
   }
 }
 
+// box
+
+@mixin box {
+  box-sizing: border-box;
+}
+
 // center
 
 @mixin align {

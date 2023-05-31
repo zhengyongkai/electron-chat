@@ -8,6 +8,7 @@ import type {
 import { ElMessage } from 'element-plus'
 import store from '@/store'
 import { $t } from './common'
+import router from '@/router'
 
 import type { HttpData, HttpResult } from '@/types/http'
 
@@ -29,6 +30,7 @@ export class HttpRequest {
           const data = error.response.data
           switch (data.code) {
             case 401:
+              router.replace('/login')
               break
           }
           ElMessage.error(data.msg)
@@ -49,7 +51,7 @@ export class HttpRequest {
     })
   }
 
-  public get(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse> {
+  public get(url: string, config?: AxiosRequestConfig): Promise<HttpData> {
     return this.instance.get(url, config)
   }
 

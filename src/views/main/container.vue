@@ -13,7 +13,9 @@
       </div>
       <div class="chat-friend">
         <div style="height: 2000px">
-          <div @click="onClick">点我聊天</div>
+          <div v-for="value in friendList" :key="value.id">
+            <user-card :user-info="value" @click="onChat(value.id)"></user-card>
+          </div>
         </div>
       </div>
     </div>
@@ -25,15 +27,24 @@
 
 <script lang="ts" setup>
 import { Plus } from '@element-plus/icons-vue'
+import { getUserList } from '@/api/user'
+import UserCard from '@/components/basic/userCard.vue'
+import type { UserInfo } from '@/types/user'
 
+const router = useRouter()
 const form = ref({
   search: ''
 })
-const router = useRouter()
+const friendList = ref<Array<UserInfo>>([])
 
-function onClick() {
-  router.push('/chat/123')
+function onChat(id: number) {
+  router.push('/chat/' + id)
 }
+
+onMounted(async () => {
+  const { list } = await getUserList()
+  friendList.value = list as UserInfo[]
+})
 </script>
 
 <style lang="scss" scoped>
@@ -45,13 +56,15 @@ function onClick() {
     @include padding-size-tb(2);
     @include common-layout-flex;
     flex-direction: column;
-    width: 28%;
+    width: 20%;
     height: 100%;
     border-right: 1px solid $--common-color-grey;
 
     .chat-search {
+      @include box();
       @include padding-size-lr(1);
       margin-bottom: 16px;
+      height: 32px;
       .el-button.is-circle {
         border-radius: 4px;
       }
