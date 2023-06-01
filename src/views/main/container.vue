@@ -38,7 +38,7 @@ const form = ref({
 const friendList = ref<Array<UserInfo>>([])
 
 function onChat(id: number) {
-  router.push('/chat/' + id)
+  router.push('/chat/contact/' + id)
 }
 
 onMounted(async () => {
@@ -80,6 +80,7 @@ onMounted(async () => {
   .chat-right {
     flex: 1;
     height: 100%;
+    // background-color: $--common-bgcolor-grey;
   }
 }
 </style>

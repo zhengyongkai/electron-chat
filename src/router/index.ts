@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
 import chatContainer from '../views/main/container.vue'
+import contactBody from '../views/chat/contact.vue'
 import chatBody from '../views/chat/chat.vue'
 import login from '../views/login.vue'
 import BasicLayout from '@/components/layout/BasicLayout.vue'
@@ -15,7 +16,7 @@ const routes: Array<RouteRecordRaw> = [
     path: '',
     name: '',
     component: BasicLayout,
-    redirect: '/chat',
+    redirect: '/login',
     children: [
       {
         path: '/chat',
@@ -23,8 +24,13 @@ const routes: Array<RouteRecordRaw> = [
         component: chatContainer,
         children: [
           {
-            path: '/chat/:id',
+            path: '/chat/contact/:id',
             name: 'chatbody',
+            component: contactBody
+          },
+          {
+            path: '/chat/:id',
+            name: 'contactBody',
             component: chatBody
           }
         ]

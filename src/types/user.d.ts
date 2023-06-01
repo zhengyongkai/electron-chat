@@ -1,10 +1,10 @@
 export type UserToken = string
 
 export type UserInfo = {
-  username?: string
-  nickname?: string
+  username: string
+  nickname: string
   signature?: string
-  avatar?: string
+  avatar: string
   work?: string
   sex: number
   id: number
