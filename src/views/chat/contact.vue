@@ -13,6 +13,14 @@
         <div>chatID：{{ userInfo?.id }}</div>
         <div>个性签名：{{ userInfo?.signature }}</div>
       </div>
+      <el-dropdown placement="bottom-start">
+        <el-icon><MoreFilled /></el-icon>
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item>拉黑</el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
     </div>
     <div class="text-align" style="margin-top: 24px">
       <el-button size="middle" type="success" @click="onChat">发消息</el-button>
@@ -21,6 +29,7 @@
 </template>
 
 <script lang="ts" setup>
+import { MoreFilled } from '@element-plus/icons-vue'
 import { getUserById } from '@/api/user'
 import router from '@/router'
 import type { UserInfo } from '@/types/user'
@@ -56,7 +65,7 @@ onMounted(async () => {
   @include padding-size-lr(2);
   @include padding-size-tb(1);
   background-color: $--common-bgcolor-white;
-  width: 360px;
+  width: 300px;
 
   .contact-content {
     margin-top: 160px;
@@ -65,10 +74,11 @@ onMounted(async () => {
     > :first-child {
       margin-right: 16px;
     }
-    > :last-child {
+    > :nth-child(2) {
       @include common-layout-flex;
       justify-content: space-between;
       flex-direction: column;
+      flex: 1;
       > :first-child {
         @include common-layout-flex-al;
         font-size: 16px;

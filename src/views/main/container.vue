@@ -3,7 +3,7 @@
     <div class="chat-left">
       <div class="chat-search">
         <el-row>
-          <el-col :span="20">
+          <el-col :span="19">
             <el-input v-model="form.search" placeholder="搜索" />
           </el-col>
           <el-col :span="1" :offset="1">
