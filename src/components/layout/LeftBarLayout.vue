@@ -2,7 +2,25 @@
   <div class="left-bar-container">
     <div class="left-bar-section">
       <div class="left-bar-avatar">
-        <el-avatar shape="square" size="middle" :src="userInfo.avatar" />
+        <el-popover placement="right" :width="280" popper-class="left-bar-popover">
+          <template #reference>
+            <el-avatar shape="square" size="middle" :src="userInfo.avatar" />
+          </template>
+          <div class="left-bar-popover">
+            <div><el-avatar shape="square" size="large" :src="userInfo.avatar" /></div>
+            <div>
+              <div>
+                <div>{{ userInfo.nickname }}</div>
+                <div v-if="userInfo.sex === 0"><svg-icon name="male"></svg-icon></div>
+                <div v-if="userInfo.sex === 1"><svg-icon name="man"></svg-icon></div>
+              </div>
+              <div>{{ userInfo.signature }}</div>
+            </div>
+          </div>
+          <div class="text-align" style="margin-top: 8px">
+            <el-button size="middle" type="primary">发消息</el-button>
+          </div>
+        </el-popover>
       </div>
       <div class="left-bar-icons">
         <el-tooltip effect="dark" placement="right" :content="t('tips.chat')">
@@ -34,13 +52,14 @@
 </template>
 
 <script lang="ts" setup>
+import { UserInfo } from '@/types/user'
 import { useStore } from 'vuex'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 
 const store = useStore()
-const userInfo = computed(() => {
+const userInfo = computed<UserInfo>(() => {
   return store.state.user.userInfo
 })
 </script>
@@ -62,6 +81,30 @@ const userInfo = computed(() => {
     }
     .left-bar-icons {
       @include margin(0, 0, 18px, 0);
+    }
+  }
+}
+.left-bar-popover {
+  @include common-layout-flex;
+  @include padding-size-tb(1);
+  > :first-child {
+    margin-right: 16px;
+  }
+  > :last-child {
+    @include common-layout-flex;
+    justify-content: space-between;
+    flex-direction: column;
+    > :first-child {
+      @include common-layout-flex-al;
+      font-size: 16px;
+      font-weight: 550;
+      :first-child {
+        margin-right: 8px;
+      }
+    }
+    :last-child {
+      font-size: 12px;
+      color: $--common-color-info;
     }
   }
 }

@@ -6,6 +6,7 @@ export type UserInfo = {
   signature?: string
   avatar?: string
   work?: string
+  sex: number
   id: number
 }
 
