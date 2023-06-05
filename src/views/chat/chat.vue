@@ -3,7 +3,9 @@
     <div class="chat-body-header">
       {{ userInfo?.nickname }}
     </div>
-    <div class="chat-body-content"></div>
+    <div class="chat-body-content">
+      <el-button @click="send">ss</el-button>
+    </div>
   </div>
 </template>
 
@@ -20,6 +22,10 @@ watchEffect(() => {
   query_id.value = route.params.id
   loadData()
 })
+
+function send() {
+  //
+}
 
 async function loadData() {
   loading.value = true
