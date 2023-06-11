@@ -5,7 +5,8 @@ const zh = {
   form: {
     username: '账号',
     password: '密码',
-    remember: '记住密码'
+    remember: '记住密码',
+    search: '搜索'
   },
   btns: {
     login: '登录'

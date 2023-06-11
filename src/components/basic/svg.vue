@@ -29,13 +29,13 @@ export default {
       required: true
     },
     size: {
-      type: String,
+      type: [String, Number],
       default: 'middle'
     }
   },
   computed: {
     length: function () {
-      return this.sizeGroup[this.size].size
+      return typeof this.size === 'number' ? this.size + 'px' : this.sizeGroup[this.size].size
     }
   }
 }

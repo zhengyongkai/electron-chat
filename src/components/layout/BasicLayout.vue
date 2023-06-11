@@ -4,13 +4,19 @@
       <left-bar-layout />
     </div>
     <div class="tab-right">
-      <RouterView></RouterView>
+      <router-view v-slot="{ Component }">
+        <keep-alive>
+          <component :is="Component" />
+        </keep-alive>
+      </router-view>
     </div>
+    <bottom-button />
   </div>
 </template>
 
 <script lang="ts" setup>
 import LeftBarLayout from './LeftBarLayout.vue'
+import bottomButton from '../basic/bottomButton.vue'
 </script>
 
 <style lang="scss" scoped>
