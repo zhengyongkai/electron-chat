@@ -21,28 +21,32 @@
               <span>通讯录管理</span>
             </el-button>
           </div>
-          <div v-for="value in friendList" :key="value.id">
+          <div v-for="value in friendList.keys()" :key="value">
+            <div class="contact-group">{{ value }}</div>
             <user-card
-              :user-info="value"
-              @click="onChat(value)"
-              :class="value.id === userData?.id ? 'chating' : ''"
+              v-for="list in friendList.get(value)"
+              :key="list.id"
+              :user-info="list"
+              @click="onChat(list)"
+              :class="list.id === userData?.id ? 'chating' : ''"
             ></user-card>
           </div>
         </div>
       </div>
     </div>
     <div class="contact-right">
-      <cantact ref="cantactRef"></cantact>
+      <contact ref="cantactRef"></contact>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Plus } from '@element-plus/icons-vue'
 import { getUserList } from '@/api/user'
 import UserCard from '@/components/basic/userCard.vue'
-import cantact from '@/views/chat/contact.vue'
+import contact from '@/views/chat/contact.vue'
 import { useI18n } from 'vue-i18n'
+import { groupByPin } from '@/utils/common'
+
 import type { UserInfo } from '@/types/user'
 import type { ContactType } from '@/views/chat/contact.vue'
 </script>
@@ -54,7 +58,7 @@ const userData = ref<UserInfo>()
 const form = ref({
   search: ''
 })
-const friendList = ref<Array<UserInfo>>([])
+const friendList = ref<Map<string, UserInfo[]>>(new Map())
 
 function onChat(user: UserInfo) {
   // router.push('/contact/contact/' + id)
@@ -64,7 +68,8 @@ function onChat(user: UserInfo) {
 
 onMounted(async () => {
   const { list } = await getUserList()
-  friendList.value = list as UserInfo[]
+  const data = groupByPin(list, 'nickname') as Map<string, UserInfo[]>
+  friendList.value = data
 })
 </script>
 
@@ -106,6 +111,11 @@ onMounted(async () => {
           width: 100%;
           height: 40px;
         }
+      }
+      .contact-group {
+        @include padding(4px, 8px, 4px, 8px);
+        font-size: 12px;
+        color: $--common-color-info;
       }
     }
   }

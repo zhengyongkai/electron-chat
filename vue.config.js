@@ -43,7 +43,8 @@ module.exports = defineConfig(() => {
 
     configureWebpack: {
       externals: {
-        electron: 'require("electron")'
+        electron: 'require("electron")',
+        pingyin: 'require("tiny-pinyin")'
       },
       resolve: {
         symlinks: false,

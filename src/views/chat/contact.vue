@@ -43,6 +43,7 @@
 import { useI18n } from 'vue-i18n'
 import { UserInfo } from '@/types/user'
 import { MoreFilled } from '@element-plus/icons-vue'
+
 import router from '@/router'
 export interface ContactType {
   loadData: (user: UserInfo) => null
