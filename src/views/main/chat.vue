@@ -7,7 +7,7 @@
             <el-input v-model="form.search" placeholder="搜索" />
           </el-col>
           <el-col :span="1" :offset="1">
-            <el-button type="info" :icon="Plus" circle />
+            <el-button :icon="Plus" circle />
           </el-col>
         </el-row>
       </div>

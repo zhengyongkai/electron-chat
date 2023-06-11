@@ -4,7 +4,7 @@
       {{ userInfo?.nickname }}
     </div>
     <div class="chat-body-content">
-      <el-button @click="send">ss</el-button>
+      <el-button @click="send"> </el-button>
     </div>
   </div>
 </template>

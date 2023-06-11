@@ -10,6 +10,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     BasicLayout: typeof import('./src/components/layout/BasicLayout.vue')['default']
+    BottomButton: typeof import('./src/components/basic/bottomButton.vue')['default']
     Contact: typeof import('./src/components/layout/Contact.vue')['default']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElButton: typeof import('element-plus/es')['ElButton']

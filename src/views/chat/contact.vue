@@ -1,8 +1,12 @@
 <template>
   <div v-loading="loading" class="contact-body magin-center">
     <template v-if="!userInfo">
-      <div>
-        <el-empty :description="t('contact.empty')" />
+      <div style="margin-top: 64px">
+        <el-empty :description="t('contact.empty')">
+          <template v-slot:image>
+            <svg-icon name="empty" :size="240"></svg-icon>
+          </template>
+        </el-empty>
       </div>
     </template>
     <template v-else>

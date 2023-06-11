@@ -1,7 +1,9 @@
 <template>
   <div>
     <el-dropdown @command="onChangeLang">
-      <span class="el-dropdown-link"> {{ t('tips.changeLang') }} </span>
+      <span class="el-dropdown-link">
+        <svg-icon name="translate"></svg-icon>
+      </span>
       <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item :command="lang.value" v-for="(lang, index) in LANGLIST" :key="index">
@@ -18,7 +20,6 @@ import { useI18n } from 'vue-i18n'
 import { LANGLIST } from '@/constant'
 
 const i18n = useI18n()
-const { t } = useI18n()
 const store = useStore()
 
 const langs = computed({
