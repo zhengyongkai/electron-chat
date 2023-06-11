@@ -80,7 +80,7 @@ async function onLogin() {
     const data = await getUserInfo()
     store.commit('SET_USERINFO', data)
     notification('欢迎你').show('success')
-    router.replace('/chat')
+    router.replace('/contact')
   } finally {
     loading.value = false
   }

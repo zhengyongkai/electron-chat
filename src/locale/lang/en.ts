@@ -10,6 +10,9 @@ const en = {
   btns: {
     login: 'Login'
   },
+  contact: {
+    empty: 'Please Choose a friend to Chat,Enjoy!'
+  },
   tips: {
     changeLang: 'change Language',
     chat: 'chat',

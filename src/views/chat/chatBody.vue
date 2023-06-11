@@ -9,34 +9,30 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-import { getUserById } from '@/api/user'
+<script lang="ts">
 import type { UserInfo } from '@/types/user'
+export interface ChatType {
+  loadData: (user: UserInfo) => null
+}
+</script>
 
-const route = useRoute()
+<script lang="ts" setup>
 const loading = ref<boolean>(false)
-const query_id = ref(route.params.id)
 const userInfo = ref<UserInfo>()
 
-watchEffect(() => {
-  query_id.value = route.params.id
-  loadData()
+async function loadData(user: UserInfo) {
+  loading.value = true
+  userInfo.value = user as UserInfo
+  loading.value = false
+}
+
+defineExpose({
+  loadData
 })
 
 function send() {
   //
 }
-
-async function loadData() {
-  loading.value = true
-  const data = await getUserById(query_id.value as string)
-  userInfo.value = data as UserInfo
-  loading.value = false
-}
-
-onMounted(async () => {
-  loadData()
-})
 </script>
 
 <style lang="scss">

@@ -1,62 +1,67 @@
 <template>
   <div v-loading="loading" class="contact-body magin-center">
-    <div class="contact-content">
+    <template v-if="!userInfo">
       <div>
-        <el-avatar shape="square" :size="64" :src="userInfo?.avatar" />
+        <el-empty :description="t('contact.empty')" />
       </div>
-      <div>
+    </template>
+    <template v-else>
+      <div class="contact-content">
         <div>
-          <div>{{ userInfo?.nickname }}</div>
-          <div v-if="userInfo?.sex === 0"><svg-icon name="male"></svg-icon></div>
-          <div v-if="userInfo?.sex === 1"><svg-icon name="man"></svg-icon></div>
+          <el-avatar shape="square" :size="64" :src="userInfo?.avatar" />
         </div>
-        <div>chatID：{{ userInfo?.id }}</div>
-        <div>个性签名：{{ userInfo?.signature }}</div>
+        <div>
+          <div>
+            <div>{{ userInfo?.nickname }}</div>
+            <div v-if="userInfo?.sex === 0"><svg-icon name="male"></svg-icon></div>
+            <div v-if="userInfo?.sex === 1"><svg-icon name="man"></svg-icon></div>
+          </div>
+          <div>chatID：{{ userInfo?.id }}</div>
+          <div>个性签名：{{ userInfo?.signature }}</div>
+        </div>
+        <el-dropdown placement="bottom-start">
+          <el-icon><MoreFilled /></el-icon>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item>拉黑</el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
       </div>
-      <el-dropdown placement="bottom-start">
-        <el-icon><MoreFilled /></el-icon>
-        <template #dropdown>
-          <el-dropdown-menu>
-            <el-dropdown-item>拉黑</el-dropdown-item>
-          </el-dropdown-menu>
-        </template>
-      </el-dropdown>
-    </div>
-    <div class="text-align" style="margin-top: 24px">
-      <el-button size="middle" type="success" @click="onChat">发消息</el-button>
-    </div>
+      <div class="text-align" style="margin-top: 24px">
+        <el-button size="middle" type="success" @click="onChat">发消息</el-button>
+      </div>
+    </template>
   </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts">
+import { useI18n } from 'vue-i18n'
+import { UserInfo } from '@/types/user'
 import { MoreFilled } from '@element-plus/icons-vue'
-import { getUserById } from '@/api/user'
 import router from '@/router'
-import type { UserInfo } from '@/types/user'
+export interface ContactType {
+  loadData: (user: UserInfo) => null
+}
+</script>
 
-const route = useRoute()
+<script lang="ts" setup>
 const loading = ref<boolean>(false)
-const query_id = ref(route.params.id)
 const userInfo = ref<UserInfo>()
+const { t } = useI18n()
 
-watchEffect(() => {
-  query_id.value = route.params.id
-  loadData()
-})
-
-async function loadData() {
+async function loadData(user: UserInfo) {
   loading.value = true
-  const data = await getUserById(query_id.value as string)
-  userInfo.value = data as UserInfo
+  userInfo.value = user as UserInfo
   loading.value = false
 }
 
 function onChat() {
-  router.push('/chat/' + userInfo.value?.id)
+  router.push('/chat?id=' + userInfo.value?.id)
 }
 
-onMounted(async () => {
-  loadData()
+defineExpose({
+  loadData
 })
 </script>
 

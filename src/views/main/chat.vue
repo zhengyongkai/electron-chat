@@ -20,28 +20,30 @@
       </div>
     </div>
     <div class="chat-right">
-      <cantact ref="cantactRef"></cantact>
+      <chat-body ref="chatRef" />
     </div>
   </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts">
 import { Plus } from '@element-plus/icons-vue'
 import { getUserList } from '@/api/user'
 import UserCard from '@/components/basic/userCard.vue'
-import cantact from '@/views/chat/contact.vue'
+import chatBody from '../chat/chatBody.vue'
 import type { UserInfo } from '@/types/user'
-import type { ContactType } from '@/views/chat/contact.vue'
+import type { ChatType } from '@/views/chat/chatBody.vue'
+</script>
 
-const cantactRef = ref<ContactType>()
+<script lang="ts" setup>
 const form = ref({
   search: ''
 })
 const friendList = ref<Array<UserInfo>>([])
+const chatRef = ref<ChatType>()
 
 function onChat(user: UserInfo) {
   // router.push('/chat/contact/' + id)
-  cantactRef.value?.loadData(user)
+  chatRef.value?.loadData(user)
 }
 
 onMounted(async () => {

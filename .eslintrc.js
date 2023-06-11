@@ -36,7 +36,8 @@ module.exports = {
     createPinia: 'readonly',
     inject: 'readonly',
     provide: 'readonly',
-    useStore: 'readonly'
+    useStore: 'readonly',
+    defineExpose: 'readonly'
   },
   rules: {
     // //通用规则//
@@ -44,7 +45,7 @@ module.exports = {
 
     // 符号位置规则
     'no-console': 2,
-    'no-unused-vars': 2,
+    'no-unused-vars': 0,
     'comma-style': 1, // 逗号在末尾处
     'comma-spacing': 1, // 逗号后有至少一个空格
     'comma-dangle': [1, 'never'], // 强制不使用末尾逗号
@@ -204,6 +205,7 @@ module.exports = {
     'vue/require-default-prop': 0,
 
     // 单行元素文本内容前后换行
-    'vue/singleline-html-element-content-newline': 0
+    'vue/singleline-html-element-content-newline': 0,
+    'typescript-eslint/no-unused-vars': 0
   }
 }

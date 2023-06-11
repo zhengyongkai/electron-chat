@@ -10,6 +10,9 @@ const zh = {
   btns: {
     login: '登录'
   },
+  contact: {
+    empty: '请选择一个好友和你开始聊天吧！'
+  },
   tips: {
     changeLang: '点击切换语言',
     chat: '聊天',

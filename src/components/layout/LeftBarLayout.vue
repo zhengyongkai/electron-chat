@@ -22,27 +22,27 @@
           </div>
         </el-popover>
       </div>
-      <div class="left-bar-icons">
+      <div class="left-bar-icons" @click="onGo('/chat')">
         <el-tooltip effect="dark" placement="right" :content="t('tips.chat')">
           <svg-icon name="chat"></svg-icon>
         </el-tooltip>
       </div>
-      <div class="left-bar-icons">
+      <div class="left-bar-icons" @click="onGo('/contact')">
         <el-tooltip effect="dark" placement="right" :content="t('tips.contacts')">
           <svg-icon name="contacts"></svg-icon>
         </el-tooltip>
       </div>
-      <div class="left-bar-icons">
+      <div class="left-bar-icons" @click="onGo('/chat')">
         <el-tooltip effect="dark" placement="right" :content="t('tips.fav')">
           <svg-icon name="fav"></svg-icon>
         </el-tooltip>
       </div>
-      <div class="left-bar-icons">
+      <div class="left-bar-icons" @click="onGo('/chat')">
         <el-tooltip effect="dark" placement="right" :content="t('tips.shop')">
           <svg-icon name="shop"></svg-icon>
         </el-tooltip>
       </div>
-      <div class="left-bar-icons">
+      <div class="left-bar-icons" @click="onGo('/chat')">
         <el-tooltip effect="dark" placement="right" :content="t('tips.see')">
           <svg-icon name="news"></svg-icon>
         </el-tooltip>
@@ -50,18 +50,24 @@
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
+<script lang="ts">
 import { UserInfo } from '@/types/user'
 import { useStore } from 'vuex'
 import { useI18n } from 'vue-i18n'
+</script>
 
+<script lang="ts" setup>
 const { t } = useI18n()
+const router = useRouter()
 
 const store = useStore()
 const userInfo = computed<UserInfo>(() => {
   return store.state.user.userInfo
 })
+
+function onGo(path: string) {
+  router.push(path)
+}
 </script>
 
 <style lang="scss" scoped>
