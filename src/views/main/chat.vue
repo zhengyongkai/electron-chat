@@ -25,16 +25,14 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { Plus } from '@element-plus/icons-vue'
 import { getUserList } from '@/api/user'
 import UserCard from '@/components/basic/userCard.vue'
 import chatBody from '../chat/chatBody.vue'
 import type { UserInfo } from '@/types/user'
 import type { ChatType } from '@/views/chat/chatBody.vue'
-</script>
 
-<script lang="ts" setup>
 const form = ref({
   search: ''
 })

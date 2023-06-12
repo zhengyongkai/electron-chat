@@ -39,18 +39,17 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { useI18n } from 'vue-i18n'
 import { UserInfo } from '@/types/user'
 import { MoreFilled } from '@element-plus/icons-vue'
 
 import router from '@/router'
+
 export interface ContactType {
   loadData: (user: UserInfo) => null
 }
-</script>
 
-<script lang="ts" setup>
 const loading = ref<boolean>(false)
 const userInfo = ref<UserInfo>()
 const { t } = useI18n()

@@ -50,13 +50,12 @@
     </div>
   </div>
 </template>
-<script lang="ts">
+
+<script lang="ts" setup>
 import { UserInfo } from '@/types/user'
 import { useStore } from 'vuex'
 import { useI18n } from 'vue-i18n'
-</script>
 
-<script lang="ts" setup>
 const { t } = useI18n()
 const router = useRouter()
 

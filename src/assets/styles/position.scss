@@ -6,3 +6,8 @@
   @include box-fix;
   inset: 0;
 }
+
+@mixin box-ab-all {
+  position: absolute;
+  inset: 0;
+}

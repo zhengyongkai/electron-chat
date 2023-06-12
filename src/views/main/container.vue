@@ -40,7 +40,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { getUserList } from '@/api/user'
 import UserCard from '@/components/basic/userCard.vue'
 import contact from '@/views/chat/contact.vue'
@@ -49,9 +49,7 @@ import { groupByPin } from '@/utils/common'
 
 import type { UserInfo } from '@/types/user'
 import type { ContactType } from '@/views/chat/contact.vue'
-</script>
 
-<script lang="ts" setup>
 const { t } = useI18n()
 const cantactRef = ref<ContactType>()
 const userData = ref<UserInfo>()
