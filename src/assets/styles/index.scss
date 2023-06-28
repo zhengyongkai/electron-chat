@@ -2,9 +2,14 @@
 @import './layout.scss';
 @import './position.scss';
 @import './radius.scss';
-@import './common.scss';
 @import './scroll.scss';
 @import './element.scss';
+@import './common.scss';
+
+body,
+head {
+  font-family: '微软雅黑';
+}
 
 // marign
 @mixin margin($left: 8, $right: 8, $bottom: 8, $top: 8) {

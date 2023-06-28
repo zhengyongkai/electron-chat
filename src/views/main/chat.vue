@@ -1,6 +1,6 @@
 <template>
   <div class="chat-container">
-    <div class="chat-left">
+    <!-- <div class="chat-left">
       <div class="chat-search">
         <el-row>
           <el-col :span="19">
@@ -12,48 +12,35 @@
         </el-row>
       </div>
       <div class="chat-friend">
-        <div style="height: 2000px">
-          <div v-for="value in friendList" :key="value.id">
-            <user-card :user-info="value" @click="onChat(value)"></user-card>
-          </div>
+        <div>
+          <dialyCard />
+          <dialyCard />
         </div>
       </div>
-    </div>
-    <div class="chat-right">
-      <chat-body ref="chatRef" />
+    </div> -->
+    <div>
+      <top-bar title="任务管理中心"></top-bar>
+      <div class="chat-right">
+        <chat-body ref="chatRef" />
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { Plus } from '@element-plus/icons-vue'
-import { getUserList } from '@/api/user'
-import UserCard from '@/components/basic/userCard.vue'
+// import { Plus } from '@element-plus/icons-vue'
+// import dialyCard from '@/components/basic/dialyCard.vue'
 import chatBody from '../chat/chatBody.vue'
-import type { UserInfo } from '@/types/user'
-import type { ChatType } from '@/views/chat/chatBody.vue'
-
-const form = ref({
-  search: ''
-})
-const friendList = ref<Array<UserInfo>>([])
-const chatRef = ref<ChatType>()
-
-function onChat(user: UserInfo) {
-  // router.push('/chat/contact/' + id)
-  chatRef.value?.loadData(user)
-}
-
-onMounted(async () => {
-  const { list } = await getUserList()
-  friendList.value = list as UserInfo[]
-})
+// const form = ref({
+//   search: ''
+// })
 </script>
 
 <style lang="scss" scoped>
 .chat-container {
   @include hidden;
-  @include common-layout-flex;
+  // @include common-layout-flex;
+  position: relative;
   height: 100%;
   .chat-left {
     @include padding-size-tb(2);
@@ -81,8 +68,13 @@ onMounted(async () => {
     }
   }
   .chat-right {
+    @include padding-size-lr(1);
+    background-color: $--common-bgcolor-grey-dark-5;
+    padding-top: 8px;
     flex: 1;
+    // width: 100%;
     height: 100%;
+
     // background-color: $--common-bgcolor-grey;
   }
 }

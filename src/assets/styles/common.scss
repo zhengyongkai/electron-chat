@@ -20,3 +20,33 @@ h6 {
 .magin-center {
   margin: 0 auto;
 }
+
+.m {
+  margin: 8px 0;
+}
+
+.mb8 {
+  margin-bottom: 8px;
+}
+.mt8 {
+  margin-top: 8px;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.table-container {
+  background-color: $--common-bgcolor-white;
+  padding: 12px;
+}
+
+.omitClass {
+  letter-spacing: 0;
+  width: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}

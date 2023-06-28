@@ -16,7 +16,7 @@
       <div class="contact-friend">
         <div style="height: 2000px">
           <div class="contact-setting">
-            <el-button>
+            <el-button @click="onContactManage">
               <svg-icon name="contact-seting" :size="14"></svg-icon>
               <span>通讯录管理</span>
             </el-button>
@@ -62,6 +62,16 @@ function onChat(user: UserInfo) {
   // router.push('/contact/contact/' + id)
   userData.value = user
   cantactRef.value?.loadData(user)
+}
+
+function onContactManage() {
+  if (window.ipcRenderer) {
+    window.ipcRenderer.send('window-new', {
+      route: '/contact',
+      width: 500,
+      height: 500
+    })
+  }
 }
 
 onMounted(async () => {

@@ -1,3 +1,11 @@
 .el-empty {
   --el-empty-image-width: 100%;
 }
+::v-deep .el-table__header {
+  .el-table__cell {
+    background-color: $--common-bgcolor-grey-dark-6 !important;
+  }
+  .cell {
+    color: $--common-color-black;
+  }
+}
