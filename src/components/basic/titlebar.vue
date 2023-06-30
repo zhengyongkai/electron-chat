@@ -21,21 +21,21 @@ const props = defineProps({
   @include padding-size-lr(2);
   @include common-layout-flex-al;
   box-sizing: border-box;
-  height: 40px;
-  line-height: 40px;
+  font-size: 14px;
+  height: 30px;
+  line-height: 30px;
   position: relative;
   font-weight: 550;
   width: 100%;
-  margin-top: -2px;
-  background-color: $--common-bgcolor-blue-light-5;
+  // margin-top: -2px;
+  // background-color: $--common-bgcolor-blue-light-5;
   &:before {
     content: '';
-
+    border-radius: 4px;
     width: 5px;
     border-left: 5px solid $--common-color-blue;
     position: absolute;
     left: 0;
-    top: 1px;
     height: 100%;
   }
   > :first-child {

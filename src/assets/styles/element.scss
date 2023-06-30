@@ -3,9 +3,31 @@
 }
 ::v-deep .el-table__header {
   .el-table__cell {
-    background-color: $--common-bgcolor-grey-dark-6 !important;
+    padding: 16px 0;
+    background-color: $--common-bgcolor-blue-light-5 !important;
   }
   .cell {
     color: $--common-color-black;
+  }
+}
+
+::v-deep .el-form-search {
+  .el-form-item {
+    margin-bottom: 0;
+    .el-form-item__label {
+      color: #000000;
+      font-size: 12px;
+    }
+  }
+  input::-webkit-input-placeholder,
+  textarea::-webkit-input-placeholder {
+    color: $--common-bgcolor-grey-dark-1;
+    font-size: 12px;
+  }
+}
+
+::v-deep .el-table__body {
+  .el-table__cell {
+    padding: 16px 0;
   }
 }

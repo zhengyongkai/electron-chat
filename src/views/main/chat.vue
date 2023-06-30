@@ -30,7 +30,7 @@
 <script lang="ts" setup>
 // import { Plus } from '@element-plus/icons-vue'
 // import dialyCard from '@/components/basic/dialyCard.vue'
-import chatBody from '../chat/chatBody.vue'
+import chatBody from '../chat/task/chatBody.vue'
 // const form = ref({
 //   search: ''
 // })
@@ -69,11 +69,13 @@ import chatBody from '../chat/chatBody.vue'
   }
   .chat-right {
     @include padding-size-lr(1);
+    position: absolute;
+    inset: 0;
+    top: 52px;
     background-color: $--common-bgcolor-grey-dark-5;
     padding-top: 8px;
     flex: 1;
     // width: 100%;
-    height: 100%;
 
     // background-color: $--common-bgcolor-grey;
   }

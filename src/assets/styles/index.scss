@@ -3,12 +3,11 @@
 @import './position.scss';
 @import './radius.scss';
 @import './scroll.scss';
-@import './element.scss';
 @import './common.scss';
+@import './element.scss';
 
-body,
-head {
-  font-family: '微软雅黑';
+* {
+  font-family: 'PF';
 }
 
 // marign

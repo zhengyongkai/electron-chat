@@ -14,6 +14,7 @@ import tableColumnTips from '@/components/form/tableColumnTips.vue'
 import 'element-plus/theme-chalk/el-loading.css'
 import 'element-plus/theme-chalk/el-message.css'
 import 'element-plus/theme-chalk/el-notification.css'
+import '@/assets/fonts/index.scss'
 
 svgPluginImport()
 
