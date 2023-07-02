@@ -31,6 +31,9 @@ function initLang() {
 // }
 // console.log(ipcRenderer)
 onMounted(() => {
+  if (process.env.NODE_ENV === 'production') {
+    alert('感谢本期贡献人员：乔德敏，张娟')
+  }
   initLang()
 })
 </script>

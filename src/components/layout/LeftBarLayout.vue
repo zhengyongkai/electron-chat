@@ -2,7 +2,24 @@
   <div class="left-bar-container">
     <div class="left-bar-section">
       <div class="left-bar-avatar">
-        <div><el-avatar shape="square" size="middle" :src="userInfo.avatar" /></div>
+        <div class="left-bar-avatar">
+          <el-popover placement="right" :width="280" popper-class="left-bar-popover">
+            <template #reference>
+              <el-avatar shape="square" size="middle" :src="userInfo.avatar" />
+            </template>
+            <div class="left-bar-popover">
+              <div><el-avatar shape="square" size="large" :src="userInfo.avatar" /></div>
+              <div>
+                <div>
+                  <div>{{ userInfo.nickname }}</div>
+                  <div v-if="userInfo.sex === 0"><svg-icon name="male"></svg-icon></div>
+                  <div v-if="userInfo.sex === 1"><svg-icon name="man"></svg-icon></div>
+                </div>
+                <div>{{ userInfo.signature }}</div>
+              </div>
+            </div>
+          </el-popover>
+        </div>
       </div>
       <div class="left-bar-icons" @click="onGo('/chat')">
         <el-tooltip effect="dark" placement="right" :content="t('tips.chat')">

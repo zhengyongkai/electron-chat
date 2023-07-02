@@ -11,4 +11,12 @@ export type taskInfo = {
   status: string
 }
 
+export type taskDateInfo = {
+  count: number
+  statusCount: number
+  taskPointerTime: string
+}
+
 export type taskList = taskInfo[]
+
+export type taskDateList = taskDateInfo[]

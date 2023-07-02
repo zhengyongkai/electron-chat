@@ -10,6 +10,8 @@ import SvgIcon from '@/components/basic/svg.vue'
 import titleBar from '@/components/basic/titlebar.vue'
 import topBar from '@/components/basic/topBar.vue'
 import tableColumnTips from '@/components/form/tableColumnTips.vue'
+import dictSelect from '@/components/form/dictSelect.vue'
+import iconButton from '@/components/basic/iconButton'
 
 import 'element-plus/theme-chalk/el-loading.css'
 import 'element-plus/theme-chalk/el-message.css'
@@ -24,5 +26,7 @@ app.component('svg-icon', SvgIcon)
 app.component('title-bar', titleBar)
 app.component('top-bar', topBar)
 app.component('table-column-tips', tableColumnTips)
+app.component('dict-select', dictSelect)
+app.component('icon-button', iconButton)
 
 app.mount('#app')
